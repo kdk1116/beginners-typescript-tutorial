@@ -8,8 +8,15 @@ interface User {
    * - 'user'
    * - 'super-admin'
    */
-  role: string;
+  role: Role;
 }
+//this is a bad way to write this
+// type SuperAdmin = "super-admin";
+// type Admin = "admin";
+// type UserRole = "user";
+
+//better implementation
+type Role = "admin" | "user" | "super-admin";
 
 export const defaultUser: User = {
   id: 1,
