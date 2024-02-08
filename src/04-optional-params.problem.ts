@@ -1,6 +1,6 @@
 import { expect, it } from "vitest";
-
-export const getName = (first: string, last: string) => {
+// you can't move the nullable character as the first arg the compiler will complain
+export const getName = (first: string, last?: string) => {
   if (last) {
     return `${first} ${last}`;
   }
