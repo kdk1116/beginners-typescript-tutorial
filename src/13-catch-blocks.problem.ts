@@ -6,7 +6,12 @@ const tryCatchDemo = (state: "fail" | "succeed") => {
       throw new Error("Failure!");
     }
   } catch (e) {
-    return e.message;
+    if (e instanceof Error) {
+      return e.message;
+    }
+
+    //any is the worst way to fix this - can fool compiler into passing e.messssaagge
+    //next method is to cast: ```return (e as Error).message
   }
 };
 
